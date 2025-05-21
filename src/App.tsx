@@ -4,7 +4,8 @@ function App() {
 
   return (
     <>
-      react is up
+        <span>react is up</span>
+        <span className={'text-amber-500'}>this section color is styled using tailwind</span>
     </>
   )
 }
