@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [react(),tailwindcss()],
   test: {
     environment: 'jsdom',
+    globals: true,
+    setupFiles: 'test/setup.ts',
   },
-  globals: true,
-  setupFiles: './tests/setup.js',
 } as UserConfig)
