@@ -1,11 +1,11 @@
 import type { TodoItem } from "./todo.schema.ts";
 import {useState} from "react";
 
-export default function TodoItem(props : TodoItem & { onToggle: () => void }) {
+export default function TodoItem(props : TodoItem & { onToggle: (completed: boolean) => void }) {
     const [completed, setCompleted] = useState<boolean>(props.completed);
     const onCompletedChanged = () => {
         setCompleted(!completed);
-        props.onToggle();
+        props.onToggle(!completed);
     }
     return <li className="list-row" data-testid="todo-item">
         <div>

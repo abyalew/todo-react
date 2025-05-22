@@ -37,13 +37,14 @@ export default function TodoEditDialog({ open, data, onTodoChanged, onClose }: {
         if(!result.success){
             return;
         }
+        const id = (todoItems.length | 0) + 1
         const updated: Todo = {
             id: data.id,
             name: data.name,
-            items: [...todoItems, result.data]
+            items: [...todoItems, {...result.data, id: id}]
         }
         setNewTodoItem({name: '', completed: false})
-        setTodoItems([...todoItems, result.data]);
+        setTodoItems([...todoItems, {...result.data, id: id}]);
         updateTodo(updated);
         onTodoChanged();
     }
