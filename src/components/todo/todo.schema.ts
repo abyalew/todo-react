@@ -2,7 +2,7 @@ import { z } from 'zod'
 
 export const todoItemSchema = z.object({
     id: z.number().optional(),
-    name: z.string().min(5),
+    name: z.string().min(5, "Todo name must be at least 5 characters"),
     completed: z.boolean().default(false),
 })
 
